@@ -1,0 +1,7 @@
+directories:
+  .
+
+targets:
+  //...
+
+java_language_level: 8
