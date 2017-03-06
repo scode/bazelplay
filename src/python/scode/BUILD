@@ -1,4 +1,4 @@
 py_binary(
-        name = "hello",
-        srcs = ["hello.py"],
+    name = "hello",
+    srcs = ["hello.py"],
 )
