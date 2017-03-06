@@ -12,4 +12,5 @@ bazel run //src/java/org/scode/bazelplay:hello
 bazel run //src/python/scode:hello
 bazel build --build_python_zip //src/python/scode:hello &&
   bazel-bin/src/python/scode/hello
+bazel test //...
 ```
