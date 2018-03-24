@@ -14,3 +14,8 @@ bazel build --build_python_zip //src/python/scode:hello &&
   bazel-bin/src/python/scode/hello
 bazel test //...
 ```
+
+# Warts?
+
+* Looks like there's currently (2018-03-24) no Python toolchain
+  support to nicely normalize the Python interpreter?
