@@ -17,5 +17,6 @@ bazel test //...
 
 # Warts?
 
-* Looks like there's currently (2018-03-24) no Python toolchain
-  support to nicely normalize the Python interpreter?
+* I am currently unsuccessful at setting the necessary Python version on Python targets using
+  [python_version](https://docs.bazel.build/versions/master/be/python.html). Not sure why that is,
+  but `bazel test //...` fails at the time of this writing due to not accepting the Python 3 syntax.
