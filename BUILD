@@ -29,14 +29,3 @@ java_library(
         "@org_hamcrest_hamcrest_core//jar",
     ],
 )
-
-# Per https://github.com/bazelbuild/bazel/issues/4815#issuecomment-460777113 until bug is fixed.
-py_runtime(
-    name = "pyruntime",
-    visibility = ["//visibility:public"],
-    interpreter_path = select({
-        "@bazel_tools//tools/python:PY2": "/usr/bin/python2",
-        "@bazel_tools//tools/python:PY3": "/usr/bin/python3",
-    }),
-    files = [],
-)
