@@ -18,31 +18,22 @@ http_archive(
 # This statement defines the @com_google_protobuf repo.
 http_archive(
     name = "com_google_protobuf",
-    sha256 = "f976a4cd3f1699b6d20c1e944ca1de6754777918320c719742e1674fcf247b7e",
-    strip_prefix = "protobuf-3.7.1",
-    urls = ["https://github.com/google/protobuf/archive/v3.7.1.zip"],
+    sha256 = "e4f8bedb19a93d0dccc359a126f51158282e0b24d92e0cad9c76a9699698268d",
+    strip_prefix = "protobuf-3.11.2",
+    urls = ["https://github.com/google/protobuf/archive/v3.11.2.zip"],
 )
 
-#### begin protobuf hack
-# https://github.com/protocolbuffers/protobuf/blob/master/protobuf_deps.bzl
-# https://github.com/bazelbuild/rules_cc/commit/e86b282e6fb72e6c508937f396c4e3b50cb9ad96
-# https://github.com/protocolbuffers/protobuf/issues/5918)
-#
-# load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
+
 http_archive(
-    name = "net_zlib",
-    build_file = "@com_google_protobuf//examples:third_party/zlib.BUILD",
-    sha256 = "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1",
-    strip_prefix = "zlib-1.2.11",
-    urls = ["https://zlib.net/zlib-1.2.11.tar.gz"],
+   name = "com_google_protobuf",
+   sha256 = "e4f8bedb19a93d0dccc359a126f51158282e0b24d92e0cad9c76a9699698268d",
+   strip_prefix = "protobuf-3.11.2",
+   urls = ["https://github.com/protocolbuffers/protobuf/archive/v3.11.2.zip"],
 )
 
-bind(
-    name = "zlib",
-    actual = "@net_zlib//:zlib"
-)
-#### end protobuf hack
 
+load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
+protobuf_deps()
 
 # The following dependencies were calculated from:
 # junit:junit:4.12
