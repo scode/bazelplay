@@ -1,16 +1,16 @@
 java_library(
     name = "greeter",
     srcs = ["Greeter.java"],
-    visibility = ["//src/java/org/scode/bazelplay:__pkg__"]
+    visibility = ["//src/java/org/scode/bazelplay:__pkg__"],
 )
 
 java_library(
     name = "greeter-test",
     srcs = ["GreeterTest.java"],
     deps = [
-            ":greeter",
-            "//:junit_junit",
-    ]
+        ":greeter",
+        "//:junit_junit",
+    ],
 )
 
 java_test(
@@ -18,5 +18,5 @@ java_test(
     size = "small",
     runtime_deps = [
         ":greeter-test",
-    ]
+    ],
 )

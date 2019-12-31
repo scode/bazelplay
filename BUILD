@@ -11,3 +11,8 @@ java_library(
         "@maven//:junit_junit",
     ],
 )
+
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# gazelle:prefix github.com/scode/bazelplay
+gazelle(name = "gazelle")
