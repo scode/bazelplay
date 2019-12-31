@@ -35,14 +35,11 @@ http_archive(
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 protobuf_deps()
 
-# The following dependencies were calculated from:
-# junit:junit:4.12
-
 
 jvm_maven_import_external(
     name = "org_hamcrest_hamcrest_core",
-    artifact = "org.hamcrest:hamcrest-core:1.3",
-    artifact_sha256 = "66fdef91e9739348df7a096aa384a5685f4e875584cce89386a7a47251c4d8e9",
+    artifact = "org.hamcrest:hamcrest-core:2.2",
+    artifact_sha256 = "094f5d92b4b7d9c8a2bf53cc69d356243ae89c3499457bcb4b92f7ed3bf95879",
     server_urls = ["http://central.maven.org/maven2"],
     licenses = ["notice"],
 )
