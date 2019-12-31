@@ -35,19 +35,23 @@ http_archive(
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 protobuf_deps()
 
+RULES_JVM_EXTERNAL_TAG = "3.0"
+RULES_JVM_EXTERNAL_SHA = "62133c125bf4109dfd9d2af64830208356ce4ef8b165a6ef15bbff7460b35c3a"
 
-jvm_maven_import_external(
-    name = "org_hamcrest_hamcrest_core",
-    artifact = "org.hamcrest:hamcrest-core:2.2",
-    artifact_sha256 = "094f5d92b4b7d9c8a2bf53cc69d356243ae89c3499457bcb4b92f7ed3bf95879",
-    server_urls = ["http://central.maven.org/maven2"],
-    licenses = ["notice"],
+http_archive(
+    name = "rules_jvm_external",
+    strip_prefix = "rules_jvm_external-%s" % RULES_JVM_EXTERNAL_TAG,
+    sha256 = RULES_JVM_EXTERNAL_SHA,
+    url = "https://github.com/bazelbuild/rules_jvm_external/archive/%s.zip" % RULES_JVM_EXTERNAL_TAG,
 )
 
-jvm_maven_import_external(
-    name = "junit_junit",
-    artifact = "junit:junit:4.12",
-    artifact_sha256 = "59721f0805e223d84b90677887d9ff567dc534d7c502ca903c0c2b17f05c116a",
-    server_urls = ["http://central.maven.org/maven2"],
-    licenses = ["notice"],
+load("@rules_jvm_external//:defs.bzl", "maven_install")
+
+maven_install(
+    artifacts = [
+        "junit:junit:4.12",
+    ],
+    repositories = [
+        "https://repo1.maven.org/maven2",
+    ],
 )
