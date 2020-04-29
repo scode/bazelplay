@@ -1,18 +1,20 @@
 # bazelplay
 
-Bazel playground.
+Bazel playground. Meant to be used with
+[bazelisk](https://github.com/bazelbuild/bazelisk) for a consistent
+bazel version.
 
 # Things to try
 
 ```
-bazel build //...
-bazel build //src/java/org/scode/bazelplay:hello_deploy.jar &&
+bazelisk build //...
+bazelisk build //src/java/org/scode/bazelplay:hello_deploy.jar &&
   java -jar bazel-bin/src/java/org/scode/bazelplay/hello_deploy.jar
-bazel run //src/java/org/scode/bazelplay:hello
-bazel run //src/python/scode:hello
-bazel build --build_python_zip //src/python/scode:hello &&
+bazelisk run //src/java/org/scode/bazelplay:hello
+bazelisk run //src/python/scode:hello
+bazelisk build --build_python_zip //src/python/scode:hello &&
   bazel-bin/src/python/scode/hello
-bazel test //...
+bazelisk test //...
 ```
 
 # Caveats
