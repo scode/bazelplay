@@ -1,15 +1,15 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 
 go_library(
-    name = "go_default_library",
+    name = "go_lib",
     srcs = ["main.go"],
     importpath = "github.com/scode/bazelplay/src/go",
     visibility = ["//visibility:private"],
-    deps = ["//src/go/foo:go_default_library"],
+    deps = ["//src/go/foo"],
 )
 
 go_binary(
     name = "go",
-    embed = [":go_default_library"],
+    embed = [":go_lib"],
     visibility = ["//visibility:public"],
 )
