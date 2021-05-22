@@ -22,9 +22,9 @@ bazel_skylib_workspace()
 # This statement defines the @com_google_protobuf repo.
 http_archive(
     name = "com_google_protobuf",
-    sha256 = "1c744a6a1f2c901e68c5521bc275e22bdc66256eeb605c2781923365b7087e5f",
-    strip_prefix = "protobuf-3.13.0",
-    urls = ["https://github.com/google/protobuf/archive/v3.13.0.zip"],
+    sha256 = "543cac2905c7f583dead64ed85dae726cfc75ace56c4fb74c148b151c2597035",
+    strip_prefix = "protobuf-3.17.0",
+    urls = ["https://github.com/google/protobuf/archive/v3.17.0.zip"],
 )
 
 
