@@ -1,3 +1,5 @@
+triggering CI
+
 # bazelplay
 
 Bazel playground. Meant to be used with
