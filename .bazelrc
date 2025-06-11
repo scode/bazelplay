@@ -1,0 +1,8 @@
+# Configure C++ toolchain compatibility
+build --cxxopt=-std=c++17
+build --host_cxxopt=-std=c++17
+
+# macOS-specific configuration for protobuf compatibility
+build:macos --macos_minimum_os=11.0
+build:macos --cxxopt=-mmacosx-version-min=11.0
+build:macos --host_cxxopt=-mmacosx-version-min=11.0
