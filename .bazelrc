@@ -1,0 +1,6 @@
+# Configure C++ toolchain for macOS compatibility
+build --macos_minimum_os=11.0
+build --cxxopt=-std=c++17
+build --host_cxxopt=-std=c++17
+build --cxxopt=-mmacosx-version-min=11.0
+build --host_cxxopt=-mmacosx-version-min=11.0
