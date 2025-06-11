@@ -12,7 +12,7 @@ java_library(
     ],
 )
 
-load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@gazelle//:def.bzl", "gazelle")
 
 # gazelle:prefix github.com/scode/bazelplay
 gazelle(name = "gazelle")
