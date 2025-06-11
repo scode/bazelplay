@@ -1,0 +1,30 @@
+module(
+    name = "bazelplay",
+    version = "0.1.0",
+)
+
+# Core dependencies
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "protobuf", version = "24.4")  # Latest available version that compiles properly
+bazel_dep(name = "rules_proto", version = "6.0.2")
+bazel_dep(name = "rules_jvm_external", version = "6.6")
+bazel_dep(name = "rules_go", version = "0.51.0")
+bazel_dep(name = "gazelle", version = "0.40.0")
+bazel_dep(name = "rules_python", version = "1.0.0")
+
+# Go toolchain
+go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")
+go_sdk.download(version = "1.22.10")
+
+# Maven dependencies
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+maven.install(
+    artifacts = [
+        "junit:junit:4.13.2",
+    ],
+    repositories = [
+        "https://repo1.maven.org/maven2",
+    ],
+    lock_file = "//:maven_install.json",
+)
+use_repo(maven, "maven")

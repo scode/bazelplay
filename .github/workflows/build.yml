@@ -1,23 +1,28 @@
 name: CI
-on: [push]
+on: [push, pull_request]
 jobs:
   bazel_test:
     name: bazel test
     runs-on: ubuntu-latest
     steps:
-    - name: setup go 1.17
-      uses: actions/setup-go@v1
+    - name: checkout code
+      uses: actions/checkout@v4
+
+    - name: setup go
+      uses: actions/setup-go@v5
       with:
-        go-version: 1.17
-      id: go
+        go-version: '1.22'
 
     - name: install bazelisk
       run: |
-        go get github.com/bazelbuild/bazelisk
+        go install github.com/bazelbuild/bazelisk@latest
 
-    - name: checkout code
-      uses: actions/checkout@v1
+    - name: setup java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
 
     - name: bazel test //...
       run: |
-        $(go env GOPATH)/bin/bazelisk test //...
+        bazelisk test //...
